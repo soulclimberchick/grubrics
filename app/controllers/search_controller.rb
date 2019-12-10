@@ -5,7 +5,9 @@ class SearchController < ApplicationController
   end
 
   def results
-    @results = Edamam::Recipe.search(params[:search][:q])
+    @results = Edamam::Recipe.search(params[:search][:q]).map do |result|
+      Recipe.new(result['recipe'])
+    end
     render :results
   end
 end

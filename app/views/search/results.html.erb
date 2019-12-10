@@ -1,1 +1,6 @@
-
+<% @results.each do |recipe| %>
+  <div>
+    <%= link_to recipe.title, recipe.url %>
+    <%= image_tag(recipe.image) %>
+  </div>
+<% end %>
